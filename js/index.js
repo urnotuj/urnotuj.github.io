@@ -21,15 +21,15 @@ $(function() {
     $gotoTop.click(function goTop() {
         $("html, body").scrollTop(0);
     });
-    $articleTocBtn.click(function(){
-if($navToc.is(":visible")){
-	$articleTocBtn.removeClass("active");
-	$navToc.hide();
+    $articleTocBtn.click(function() {
+        if ($navToc.is(":visible")) {
+            $articleTocBtn.removeClass("active");
+            $navToc.hide();
 
-}else{
-	$articleTocBtn.addClass("active");
-	$navToc.show();
-}
+        } else {
+            $articleTocBtn.addClass("active");
+            $navToc.show();
+        }
     });
     /*$articleTocBtn.toggle(function showToc() {
         $navToc.show();
@@ -39,4 +39,11 @@ if($navToc.is(":visible")){
     //给标签添加fontAwesome
     var $postTag = $("article.all-post>ul.article-tag-list>li.article-tag-list-item");
     $postTag.addClass("fa-tag fa");
+    //手机端导航
+    var $navMobile = $("div.nav-btn");
+    $navMobile.click(function() {
+        // console.log("ok");
+        $("div.header-info>nav.navbar>ul.menu").slideToggle(100);
+
+    });
 })
