@@ -43,6 +43,7 @@ div.active {
   color: #204264;
   font-size: 1.5rem;
   text-align: center;
+  line-height: 2.8rem;
 }
 .container .main .all-post .post-meta {
 /*时间*/
