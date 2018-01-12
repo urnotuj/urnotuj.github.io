@@ -144,6 +144,7 @@ div.active {
   .header .header-info .navbar .menu .menu-item-link {
     text-decoration: none;
     font-size: 1.1em;
+    color: #666;
   }
   .header .header-info .navbar .menu .menu-item-link:hover {
     color: #368ccb;
