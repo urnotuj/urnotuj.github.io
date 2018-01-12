@@ -140,6 +140,7 @@ div.active {
   }
   .header .header-info .navbar .menu .menu-item {
     list-style: none;
+    padding-left: 10px;
   }
   .header .header-info .navbar .menu .menu-item-link {
     text-decoration: none;

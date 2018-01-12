@@ -9,7 +9,9 @@ $(function() {
     var $articleTocBtn = $("div.post-toc-btn");
     var $navToc = $("ol.article-toc");
     var $gotoTop = $("div.gotoTop");
+    var windowWidth = document.documentElement.clientWidth;
     $(window).scroll(function showtoTop() {
+        if(windowWidth >= 868){
         if ($(this).scrollTop() > 100) {
             $gotoTop.show();
             $articleToc.show();
@@ -17,6 +19,7 @@ $(function() {
             $gotoTop.hide();
             $articleToc.hide();
         }
+    }
     });
     $gotoTop.click(function goTop() {
         $("html, body").scrollTop(0);
