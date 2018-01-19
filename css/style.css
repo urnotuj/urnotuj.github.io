@@ -130,8 +130,9 @@ div.active {
   .header .header-info .nav-btn {
     display: block;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0.6rem;
+    right: 1rem;
+    cursor: pointer;
   }
   .header .header-info .navbar .menu {
     margin: 0;
