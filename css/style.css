@@ -349,20 +349,23 @@ div.post-toc div.post-toc-btn {
 div.post-toc div.post-toc-btn:hover {
   background: #c7def5;
 }
-div.post-toc .article-toc {
+div.post-toc ul.article-toc {
   border: 1px solid #e5e5e5;
   background: #fcfcfc;
   padding: 10px 16px;
-  max-height: 500px;
+  max-height: 300px;
   overflow-y: auto;
 }
-div.post-toc .article-toc li.article-toc-item {
+div.post-toc ul.article-toc li {
   list-style: none;
 }
-div.post-toc .article-toc li.article-toc-item a.article-toc-link {
+div.post-toc ul.article-toc li a {
   text-decoration: none;
   color: #555;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+div.post-toc ul.article-toc li a.headeractive {
+  color: #c7def5;
 }
 @media screen and (max-width: 878px) {
   div.post-toc {
