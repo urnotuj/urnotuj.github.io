@@ -367,6 +367,12 @@ div.post-toc ul.article-toc li a {
 div.post-toc ul.article-toc li a.headeractive {
   color: #c7def5;
 }
+div.post-toc ul.article-toc li.ceng_1 {
+  text-indent: 1.2rem;
+}
+div.post-toc ul.article-toc li.ceng_2 {
+  text-indent: 1.9rem;
+}
 @media screen and (max-width: 878px) {
   div.post-toc {
     display: none;
