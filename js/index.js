@@ -4,7 +4,9 @@ window.onload = function fn1() {
     highloghtBlocks.length && highloghtBlocks.forEach(i => hljs.highlightBlock(i));
 }
 $(function() {
-    //返回顶部和目录
+    if(! navigator.userAgent.match(/iPhone|iPod|Android|iPad/i)){
+        console.log('okokokokok');
+           //返回顶部和目录
     var $articleToc = $("div.post-toc");
     var $articleTocBtn = $("div.post-toc-btn");
     var $navToc = $("ul.article-toc");
@@ -95,6 +97,8 @@ $(function() {
     //给标签添加fontAwesome
     var $postTag = $("article.all-post>ul.article-tag-list>li.article-tag-list-item");
     $postTag.addClass("fa-tag fa");
+    }
+ 
     //手机端导航
     var $navMobile = $("div.nav-btn");
     $navMobile.click(function() {
