@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Bootstrap," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="摘要：Bootstrap基础的CSS布局语法，包括排版、代码、表格、表单、按钮、图片等。">
+<meta name="keywords" content="Bootstrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《深入理解Bootstrap》读书笔记（二）">
+<meta property="og:url" content="http://urnotuj.github.io/blog/2017/10/18/Bootstrap2/index.html">
+<meta property="og:site_name" content="张2V的博客">
+<meta property="og:description" content="摘要：Bootstrap基础的CSS布局语法，包括排版、代码、表格、表单、按钮、图片等。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171123105922326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171123144754183?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112218532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112628591?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112820280?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112910738?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124113126814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124113547657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171121201711578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112420611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112356830?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171124112334050?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2018-01-23T03:17:10.805Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《深入理解Bootstrap》读书笔记（二）">
+<meta name="twitter:description" content="摘要：Bootstrap基础的CSS布局语法，包括排版、代码、表格、表单、按钮、图片等。">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171123105922326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://urnotuj.github.io/blog/2017/10/18/Bootstrap2/"/>
+
+
+
+
+
+  <title>《深入理解Bootstrap》读书笔记（二） | 张2V的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张2V的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blog/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Kategorien
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/blog/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Über
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blog/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://urnotuj.github.io/blog/blog/2017/10/18/Bootstrap2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张2V">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张2V的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《深入理解Bootstrap》读书笔记（二）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-18T20:22:59+08:00">
+                2017-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘要：<br>Bootstrap基础的CSS布局语法，包括排版、代码、表格、表单、按钮、图片等。<br><a id="more"></a></p>
+<h3 id="1、列表"><a href="#1、列表" class="headerlink" title="1、列表"></a>1、列表</h3><h4 id="1-1普通列表"><a href="#1-1普通列表" class="headerlink" title="1.1普通列表"></a>1.1普通列表</h4><p>普通列表的使用没有什么变化，只是在原本的基础上对margin和行间距做了一些调整。</p>
+<h4 id="1-2-有序列表"><a href="#1-2-有序列表" class="headerlink" title="1.2 有序列表"></a>1.2 有序列表</h4><p>有序列表的使用也是没有什么变化，只是在原本的基础上对margin和行间距做了一些调整。</p>
+<h4 id="1-3-去点列表"><a href="#1-3-去点列表" class="headerlink" title="1.3 去点列表"></a>1.3 去点列表</h4><p>class为 <mark>list-unstyled</mark></p>
+<p>移除默认的列表样式，列表项中左对齐 ( &lt;ul&gt; 和 &lt;ol&gt; 中)。 </p>
+<p><b>注意：</b>这个类仅适用于直接子列表项。</p>
+<pre><code>&lt;h4&gt;去点列表&lt;/h4&gt;
+&lt;ul class=&quot;list-unstyled&quot;&gt;
+  &lt;li&gt;Item1
+    &lt;ul&gt;
+      &lt;!--这个列表就是一个普通列表--&gt;
+      &lt;li&gt;Item1-1&lt;/li&gt;
+      &lt;li&gt;Item1-2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+  &lt;li&gt;Item 4&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171123105922326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="1-4-内联列表"><a href="#1-4-内联列表" class="headerlink" title="1.4 内联列表"></a>1.4 内联列表</h4><p>class为 <mark>list-inline</mark>，CSS样式如下：</p>
+<pre><code>ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.list-inline {
+  padding-left: 0;
+  margin-left: -5px;
+  list-style: none;
+}
+.list-inline &gt; li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+</code></pre><h4 id="1-5-定义列表"><a href="#1-5-定义列表" class="headerlink" title="1.5 定义列表"></a>1.5 定义列表</h4><p>定义列表的使用没有变化，只是对行间距和字体粗细做了调整。</p>
+<h4 id="1-6-水平定义列表"><a href="#1-6-水平定义列表" class="headerlink" title="1.6 水平定义列表"></a>1.6 水平定义列表</h4><p>class为 <mark>dl-horizontal</mark>，在dl元素上使用该class。</p>
+<p>效果如下图：</p>
+<p><img src="http://img.blog.csdn.net/20171123144754183?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2、-代码"><a href="#2、-代码" class="headerlink" title="2、 代码"></a>2、 代码</h3><h4 id="2-1-内联代码"><a href="#2-1-内联代码" class="headerlink" title="2.1 内联代码"></a>2.1 内联代码</h4><p>单行的内联代码使用&lt;code&gt;标签</p>
+<h4 id="2-2-用户输入代码"><a href="#2-2-用户输入代码" class="headerlink" title="2.2 用户输入代码"></a>2.2 用户输入代码</h4><h4 id="2-3-多行代码块"><a href="#2-3-多行代码块" class="headerlink" title="2.3 多行代码块"></a>2.3 多行代码块</h4><p>代码需要被显示为一个独立的块元素或者代码有多行，使用  &lt;pre&gt; 标签。<br>在标签添加 <mark>pre-scrollable</mark> 类，则可以滚动</p>
+<p>注意：使用  &lt;pre&gt;和 &lt;code&gt; 标签时，开始和结束标签都要使用unicode变体： &amp;lt; 和 &amp;gt; 。</p>
+<h3 id="3、-表格"><a href="#3、-表格" class="headerlink" title="3、 表格"></a>3、 表格</h3><h4 id="3-1-基础样式"><a href="#3-1-基础样式" class="headerlink" title="3.1 基础样式"></a>3.1 基础样式</h4><p>在table标签上添加class为 <mark>table</mark>，就是一个只带有内边距（padding）和水平分割线的基本表。</p>
+<pre><code>.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.table &gt; thead &gt; tr &gt; th,
+.table &gt; tbody &gt; tr &gt; th,
+.table &gt; tfoot &gt; tr &gt; th,
+.table &gt; thead &gt; tr &gt; td,
+.table &gt; tbody &gt; tr &gt; td,
+.table &gt; tfoot &gt; tr &gt; td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table &gt; thead &gt; tr &gt; th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+</code></pre><h4 id="3-2-带背景条纹的表格"><a href="#3-2-带背景条纹的表格" class="headerlink" title="3.2 带背景条纹的表格"></a>3.2 带背景条纹的表格</h4><p>除了添加table，还可以通过添加 <mark>.table-striped</mark>，得到一个 &lt;tbody&gt; 内的行有条纹的表格。</p>
+<p>这个类给奇数行修改了背景色</p>
+<pre><code>.table-striped &gt; tbody &gt; tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+</code></pre><p>例如：</p>
+<pre><code>&lt;table class=&quot;table table-striped&quot;&gt;
+  &lt;caption&gt;带背景条纹的表格&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+    &lt;th&gt;姓名&lt;/th&gt;
+    &lt;th&gt;性别&lt;/th&gt;
+    &lt;th&gt;电话&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;张三&lt;/td&gt;
+      &lt;td&gt;男&lt;/td&gt;
+      &lt;td&gt;1234567890&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;李四&lt;/td&gt;
+      &lt;td&gt;男&lt;/td&gt;
+      &lt;td&gt;9874561230&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;王五&lt;/td&gt;
+      &lt;td&gt;男&lt;/td&gt;
+      &lt;td&gt;4563219870&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112218532?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="3-3-带边框的表格"><a href="#3-3-带边框的表格" class="headerlink" title="3.3 带边框的表格"></a>3.3 带边框的表格</h4><p>除了添加table，还可以添加 <mark> .table-bordered</mark>，表格的所有单元格都有了一个1像素的边框。</p>
+<h4 id="3-4-鼠标悬停高亮的表格"><a href="#3-4-鼠标悬停高亮的表格" class="headerlink" title="3.4 鼠标悬停高亮的表格"></a>3.4 鼠标悬停高亮的表格</h4><p>除了添加table，还可以添加 <mark>.table-hover</mark>，表格的所有单元格都有了一个1像素的边框。</p>
+<pre><code>.table-hover &gt; tbody &gt; tr:hover {
+  background-color: #f5f5f5;
+}
+</code></pre><p>如下图：张三一行是鼠标悬停高亮效果的</p>
+<p><img src="http://img.blog.csdn.net/20171124112628591?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="3-5-紧凑型表格"><a href="#3-5-紧凑型表格" class="headerlink" title="3.5 紧凑型表格"></a>3.5 紧凑型表格</h4><p>添加<mark> .table-condensed </mark>，行内边距（padding）减少，以便让表看起来更紧凑。</p>
+<h4 id="3-6-行级元素样式"><a href="#3-6-行级元素样式" class="headerlink" title="3.6 行级元素样式"></a>3.6 行级元素样式</h4><p>以下这些类可以用于改变表格某一行或者某个单元格的背景色，这些类可被应用到 &lt;tr&gt;、&lt;td&gt; 或 &lt;th&gt;。</p>
+<pre><code>&lt;table class=&quot;table&quot;&gt;
+  &lt;caption&gt;单行单个单元格变化背景色的表格&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;姓名&lt;/th&gt;
+      &lt;th&gt;性别&lt;/th&gt;
+      &lt;th&gt;电话&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;success&quot;&gt;张三&lt;/td&gt;
+      &lt;td class=&quot;active&quot;&gt;男&lt;/td&gt;
+      &lt;td&gt;1234567890&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;warning&quot;&gt;
+      &lt;td&gt;李四&lt;/td&gt;
+      &lt;td&gt;男&lt;/td&gt;
+      &lt;td&gt;9874561230&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class=&quot;danger&quot;&gt;
+      &lt;td&gt;王五&lt;/td&gt;
+      &lt;td&gt;男&lt;/td&gt;
+      &lt;td&gt;4563219870&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112820280?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="3-7-响应式表格"><a href="#3-7-响应式表格" class="headerlink" title="3.7 响应式表格"></a>3.7 响应式表格</h4><p>通过把任意的 <mark>.table</mark> 包在 <mark>.table-responsive</mark>内，就可以让表格水平滚动以适应小型设备（小于 768px）。当在大于 768px 宽的大型设备上查看时，是没有变化的。</p>
+<h3 id="4、-表单"><a href="#4、-表单" class="headerlink" title="4、 表单"></a>4、 表单</h3><h4 id="4-1-垂直或基本表单"><a href="#4-1-垂直或基本表单" class="headerlink" title="4.1 垂直或基本表单"></a>4.1 垂直或基本表单</h4><p>基本的表单结构是 Bootstrap 自带的。</p>
+<p>把标签和控件放在一个带有 class为 <mark>form-group</mark> 的 &lt;div&gt; 中。这个form-group类有一个15px的底部外边距。</p>
+<p>向所有的文本元素 &lt;input&gt;、&lt;textarea&gt; 和 &lt;select&gt; 添加 class =”form-control” 。</p>
+<h4 id="4-2-内联表单"><a href="#4-2-内联表单" class="headerlink" title="4.2 内联表单"></a>4.2 内联表单</h4><p>给&lt;form&gt;添加一个<mark>form-inline</mark>的class，可以创建一个所有控件内联、在一行的表单。</p>
+<pre><code>&lt;form class=&quot;form-inline&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;!--为内联表单的label设置.sr-only样式将其隐藏--&gt;
+    &lt;label class=&quot;sr-only&quot; for=&quot;name&quot;&gt;名称&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;usrname&quot; id=&quot;name&quot; class=&quot;form-control&quot; placeholder=&quot;请输入名称&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;sr-only&quot; for=&quot;inputfile&quot;&gt;文件&lt;/label&gt;
+    &lt;input type=&quot;file&quot; id=&quot;inputfile&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;checkbox&quot;&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;请打勾&lt;/label&gt;  
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;提交&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112910738?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="4-3-水平表单"><a href="#4-3-水平表单" class="headerlink" title="4.3 水平表单"></a>4.3 水平表单</h4><p>给&lt;form&gt;添加一个<mark>form-horizontal</mark>的class，</p>
+<p>此外，再结合上一篇中讲到的栅格类，将label和控件实现水平布局。</p>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+&lt;h4&gt;水平表单&lt;/h4&gt;
+&lt;form class=&quot;form-horizontal&quot;&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label for=&quot;name&quot; class=&quot;col-lg-2 col-sm-2 col-xs-2&quot;&gt;用户名&lt;/label&gt;
+    &lt;input class=&quot;col-lg-10 col-sm-10 col-xs-10&quot; type=&quot;text&quot; name=&quot;usrname&quot; id=&quot;name&quot; placeholder=&quot;输入用户名&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;label class=&quot;col-lg-2 col-sm-2 col-xs-2&quot; for=&quot;password&quot;&gt;密码&lt;/label&gt;
+    &lt;input class=&quot;col-lg-10 col-sm-10 col-xs-10&quot; type=&quot;text&quot; name=&quot;pw&quot; id=&quot;password&quot; placeholder=&quot;输入密码&quot;&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;checkbox&quot;&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;记住密码&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;登录&lt;/button&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+</code></pre><p>如下图：</p>
+<p>这张图是在1080px的屏幕中：</p>
+<p><img src="http://img.blog.csdn.net/20171124113126814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>这张是在iphone 6 plus下的效果：</p>
+<p><img src="http://img.blog.csdn.net/20171124113547657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="4-4-表单控件"><a href="#4-4-表单控件" class="headerlink" title="4.4 表单控件"></a>4.4 表单控件</h4><p>Bootstrap支持input、select、checkbox、radio、textarea等。</p>
+<p>input、select、textarea元素与HTML中使用没有太大差别</p>
+<p>radio和checkbox在使用的时候，要用label标签包住，并且最外层要用class为相应的名称的div包住，例如：</p>
+<pre><code>&lt;div class=&quot;checkbox&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;checkbox&quot;&gt;请打勾&lt;/label&gt;  
+&lt;/div&gt;
+&lt;div class=&quot;radio&quot;&gt;
+  &lt;label&gt;&lt;input type=&quot;radio&quot;&gt;请打勾&lt;/label&gt;  
+&lt;/div&gt;
+</code></pre><h4 id="4-5-控件状态"><a href="#4-5-控件状态" class="headerlink" title="4.5 控件状态"></a>4.5 控件状态</h4><p>除了 <mark>:focus</mark> 状态（即，用户点击 input 或使用 tab 键聚焦到 input 上），Bootstrap 还为禁用的输入框定义了样式，并提供了表单验证的 class。</p>
+<h5 id="1）输入框焦点"><a href="#1）输入框焦点" class="headerlink" title="1）输入框焦点"></a>1）输入框焦点</h5><p>当输入框 input 接收到 <mark>:focus</mark> 时，输入框的轮廓会被移除，同时应用 box-shadow。</p>
+<h5 id="2）禁用的输入框-input"><a href="#2）禁用的输入框-input" class="headerlink" title="2）禁用的输入框 input"></a>2）禁用的输入框 input</h5><p>如果您想要禁用一个输入框 input，只需要简单地添加 disabled 属性，这不仅会禁用输入框，还会改变输入框的样式以及当鼠标的指针悬停在元素上时鼠标指针的样式。</p>
+<p>禁用的字段集 fieldset</p>
+<p>对 &lt;fieldset&gt; 添加 disabled 属性来禁用 &lt;fieldset&gt; 内的所有控件。</p>
+<h5 id="3）验证状态"><a href="#3）验证状态" class="headerlink" title="3）验证状态"></a>3）验证状态</h5><p>Bootstrap 包含了错误、警告和成功消息的验证样式。只需要对父元素简单地添加适当的 class（.has-warning、 .has-error 或 .has-success）即可使用验证状态。</p>
+<h4 id="4-6-控件大小"><a href="#4-6-控件大小" class="headerlink" title="4.6 控件大小"></a>4.6 控件大小</h4><p>通过给input输入框设置不同的padding、font-size、border-radius实现了大小不同的输入框，分别为<mark>.input-lg</mark> 和 <mark>.input-sm</mark>。</p>
+<h4 id="4-7-表单帮助文本"><a href="#4-7-表单帮助文本" class="headerlink" title="4.7 表单帮助文本"></a>4.7 表单帮助文本</h4><p>表单控件可以在输入框 input 上有一个块级帮助文本，添加 <mark>.help-block</mark> 即可。</p>
+<h3 id="5、按钮"><a href="#5、按钮" class="headerlink" title="5、按钮"></a>5、按钮</h3><h4 id="5-1-按钮样式"><a href="#5-1-按钮样式" class="headerlink" title="5.1 按钮样式"></a>5.1 按钮样式</h4><p>任何带有 class为 <mark>.btn</mark> 的元素都会继承圆角灰色按钮的默认外观。此外，还有一些选项来定义按钮的样式，具体如下表所示：</p>
+<p><img src="http://img.blog.csdn.net/20171121201711578?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><mark>.btn</mark>定义了一些基础的样式（字体大小粗细、margin、padding值、边框、圆角等）以及相关的hover、focus、active等行为特效。</p>
+<p>然后，<mark>.btn-*</mark> （.btn-default等）定义一些特殊的样式（背景色、边框颜色以及各种变化状态下的颜色等）。</p>
+<pre><code>&lt;button&gt;普通按钮&lt;/button&gt;
+&lt;!--基本button--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn&quot;&gt;基本按钮&lt;/button&gt;
+&lt;!--标准按钮--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;标准按钮&lt;/button&gt;
+&lt;!-- 提供额外的视觉效果，标识一组按钮中的原始动作 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;原始按钮&lt;/button&gt;
+&lt;!-- 表示一个成功的或积极的动作 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;成功按钮&lt;/button&gt;
+&lt;!-- 信息警告消息的上下文按钮 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;信息按钮&lt;/button&gt;
+&lt;!-- 表示应谨慎采取的动作 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;警告按钮&lt;/button&gt;
+&lt;!-- 表示一个危险的或潜在的负面动作 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;危险按钮&lt;/button&gt;
+&lt;!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;链接按钮&lt;/button&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112420611?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="5-2-按钮大小"><a href="#5-2-按钮大小" class="headerlink" title="5.2 按钮大小"></a>5.2 按钮大小</h4><p><mark>.btn-lg</mark> 是比较大的按钮， <mark>.btn-sm</mark> 是比较大小的按钮， <mark>.btn-xs</mark> 是超小的按钮。这几个都是根据文本的长短来决定宽度。还有一个是<mark>.btn-block</mark> ，它是一个块级的，充满父容器，并不根据文本自动伸缩。</p>
+<pre><code>&lt;!--大的--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;大的原始按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;大的按钮&lt;/button&gt;
+&lt;!--默认大小--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;默认大小的原始按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;默认大小的按钮&lt;/button&gt;
+&lt;!--较小的--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;小的原始按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;小的按钮&lt;/button&gt;
+&lt;!--超小的--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;特别小的原始按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;特别小的按钮&lt;/button&gt;
+&lt;!--块级的--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg btn-block&quot;&gt;块级的原始按钮&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg btn-block&quot;&gt;块级的按钮&lt;/button&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112356830?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h4 id="5-3-按钮状态"><a href="#5-3-按钮状态" class="headerlink" title="5.3 按钮状态"></a>5.3 按钮状态</h4><p>提供了活动状态和禁用状态。活动状态背景颜色、边框颜色、阴影都更深，禁用状态则是更浅。</p>
+<p>活动状态的实现是通过在默认的 <mark>.btn</mark> 增加 <mark>:acitve</mark> 和 <mark>.active</mark>样式改变阴影，在 <mark>.btn-*</mark> 的样式上定义不同的文字颜色、背景颜色、边框颜色。</p>
+<p>这里我为了方便展示效果，添加了<mark>.active</mark>样式，可以在页面加载时就有活动状态的效果。</p>
+<pre><code>&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;初始状态的原始按钮&lt;/button&gt;
+&lt;!--活动状态的按钮--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary active&quot;&gt;活动状态的原始按钮&lt;/button&gt;
+&lt;!--活动状态的链接--&gt;
+&lt;a href=&quot;&quot; class=&quot;btn btn-primary active&quot;&gt;活动状态的原始链接&lt;/a&gt;
+&lt;!--禁用状态的按钮--&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-primary disabled&quot;&gt;禁用状态的原始按钮&lt;/button&gt;
+&lt;!--禁用状态的链接--&gt;
+&lt;a href=&quot;&quot; class=&quot;btn btn-primary disabled&quot;&gt;禁用状态的原始链接&lt;/a&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20171124112334050?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSXZ5X1pX/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>###6、图片</p>
+<p>Bootstrap 提供了三个可对图片应用简单样式的 class：</p>
+<ul>
+<li><p>.<mark>img-rounded：</mark>添加 border-radius:6px 来获得图片圆角。 </p>
+</li>
+<li><p><mark>.img-circle：</mark>添加 border-radius:50% 来让整个图片变成圆形。 </p>
+</li>
+<li><p><mark>.img-thumbnail：</mark>添加一些内边距（padding）和一个灰色的边框。</p>
+</li>
+</ul>
+<p>此外， 添加 <mark>.img-responsive</mark> 类来让图片支持响应式设计。<mark>.img-responsive</mark> 类将 max-width: 100%; 和 height: auto; 样式应用在图片上，图片将很好地扩展到父元素。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/Bootstrap/" rel="tag"># Bootstrap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/2017/10/14/我的Sublime-Text插件/" rel="next" title="我的Sublime Text插件">
+                <i class="fa fa-chevron-left"></i> 我的Sublime Text插件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/2017/11/03/jQuery的ajax方法/" rel="prev" title="jQuery的Ajax方法">
+                jQuery的Ajax方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blog/images/me.jpg"
+               alt="张2V" />
+          <p class="site-author-name" itemprop="name">张2V</p>
+           
+              <p class="site-description motion-element" itemprop="description">不屈服，不媚俗</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/blog/archives/">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/blog/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、列表"><span class="nav-number">1.</span> <span class="nav-text">1、列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1普通列表"><span class="nav-number">1.1.</span> <span class="nav-text">1.1普通列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-有序列表"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 有序列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-去点列表"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 去点列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-内联列表"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 内联列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-定义列表"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 定义列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-水平定义列表"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 水平定义列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-代码"><span class="nav-number">2.</span> <span class="nav-text">2、 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-内联代码"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 内联代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-用户输入代码"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 用户输入代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-多行代码块"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 多行代码块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、-表格"><span class="nav-number">3.</span> <span class="nav-text">3、 表格</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-基础样式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 基础样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-带背景条纹的表格"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 带背景条纹的表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-带边框的表格"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 带边框的表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-鼠标悬停高亮的表格"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 鼠标悬停高亮的表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-紧凑型表格"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 紧凑型表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-行级元素样式"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 行级元素样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-响应式表格"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 响应式表格</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、-表单"><span class="nav-number">4.</span> <span class="nav-text">4、 表单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-垂直或基本表单"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 垂直或基本表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-内联表单"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 内联表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-水平表单"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 水平表单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-表单控件"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 表单控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-控件状态"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 控件状态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）输入框焦点"><span class="nav-number">4.5.1.</span> <span class="nav-text">1）输入框焦点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）禁用的输入框-input"><span class="nav-number">4.5.2.</span> <span class="nav-text">2）禁用的输入框 input</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）验证状态"><span class="nav-number">4.5.3.</span> <span class="nav-text">3）验证状态</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6-控件大小"><span class="nav-number">4.6.</span> <span class="nav-text">4.6 控件大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-7-表单帮助文本"><span class="nav-number">4.7.</span> <span class="nav-text">4.7 表单帮助文本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、按钮"><span class="nav-number">5.</span> <span class="nav-text">5、按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-按钮样式"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 按钮样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-按钮大小"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 按钮大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-按钮状态"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 按钮状态</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张2V</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
