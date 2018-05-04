@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta content="width=device-width, initial-scale=0, maximum-scale=1.0, user-scale=0" name="viewport">
+	<title>张2V的博客</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/tomorrow-night.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/blog/css/style.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+		<header class="header">
+    <div class="header-info">
+        <div class="blog-title">
+            <a href="/blog/" class="logo">张2V的博客</a>
+        </div>       
+        <div class="nav-btn">
+            <i class="fa fa-list fa-lg"></i>
+                <!--img src="/images/other_48.png" class="nav-img"-->
+        </div>
+        <nav class="navbar">
+            <ul class="menu">
+                
+                    <li class="menu-item">
+                        <a href="/blog/" class="menu-item-link">主页</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/archives" class="menu-item-link">归档</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/tags" class="menu-item-link">标签</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/about" class="menu-item-link">关于</a>
+                    </li>
+                
+            <!--li class="menu-item"><a href="/archives" class="menu-item-link">Archive</a></li-->
+            </ul>
+        </nav>
+    </div>
+</header>
+		<div class="container">
+		<main class="main">
+			
+			<!--文章模板-->
+
+    <!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title">jQuery的Ajax方法</h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2017-11-03</span>
+	</div>
+	<div class="post-content">
+		<p>摘要：<br>jQuery对Ajax操作进行了封装，$.ajax()方法属于最底层的方法，第2层是load()、$.get()、$.post()方法，第3层是$.getScript()和$.getJSON()方法。<br><a id="more"></a></p>
+<p><strong>$.get()</strong>方法和<strong>$.post()</strong>方法是jQuery中的全局函数。</p>
+<hr>
+<h2 id="1、load-方法"><a href="#1、load-方法" class="headerlink" title="1、load()方法"></a>1、load()方法</h2><h4 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h4><p>可以载入远程HTML代码并插入DOM中。</p>
+<pre><code>load(url, [data], [callback])
+</code></pre><p>url为请求HTML页面的URL地址，data为发送至服务器的key/value数据，callback为请求完成时的回调函数，无论请求成功或失败。</p>
+<p>还可以筛选载入的HTML文档：为URL参数指定选择符。</p>
+<p>load()方法的URL参数的语法结构为<strong><font size="4">“url selector”</font></strong>。如果URL参数的字符串中包含一个或多个空格，那么第一个空格后面的内容，会被当成是jQuery 的选择器，从而决定应该加载返回结果中的哪部分内容。</p>
+<h4 id="1-2-传递方式"><a href="#1-2-传递方式" class="headerlink" title="1.2 传递方式"></a>1.2 传递方式</h4><p>load()方法的传递方式根据参数data来自动指定。默认采用GET方式传递；如果有参数传递，则会自动转换为POST方式。</p>
+<pre><code>//无参数传递，为GET方式
+$(&quot;#resText&quot;).load(&quot;test.php&quot;,function(){
+    // body...
+});
+//有参数传递，为POST方式
+$(&quot;#resText&quot;).load(&quot;test.php&quot;,{name:&quot;rain&quot;, age:&quot;22&quot;},function () {
+    // body...
+});
+</code></pre><h4 id="1-3-回调函数"><a href="#1-3-回调函数" class="headerlink" title="1.3 回调函数"></a>1.3 回调函数</h4><p>对于必须在加载完成后才能继续的操作</p>
+<pre><code>callback(responseText, textStatus, XMLHttpRequest)
+</code></pre><p>responseText为请求返回的内容，textStatus为请求状态（success、error、notmodified、timeout4种），XMLHttpRequest为一个XMLHttpRequest对象。</p>
+<p><font color="red">注意：</font>在load()方法中，无论Ajax请求是否成功，只要当请求完成（complete）后，回调函数就被触发。</p>
+<h2 id="2、-get-方法和-post-方法"><a href="#2、-get-方法和-post-方法" class="headerlink" title="2、$.get()方法和$.post()方法"></a>2、$.get()方法和$.post()方法</h2><p>load()方法通常用来从Web服务器上货去静态的数据文件。如果需要传递一些参数给服务器中的页面，就可以使用$.get()和$.post()方法（或者$.ajax()）。</p>
+<h3 id="2-1-get-方法"><a href="#2-1-get-方法" class="headerlink" title="2.1 $.get()方法"></a>2.1 $.get()方法</h3><p>$.get()方法使用GETR方式来进行异步请求。</p>
+<pre><code>$.get(url, [data], [callback(data, textStatus, jqXHR)], [dataType])
+\\url:  请求HTML页面的URL地址
+\\data: 发送至服务器的key/value数据
+\\callback(): 载入成功时的回调函数
+\\dataType:服务器端返回内容的格式，包括xml、html、script、json、text和_default
+</code></pre><p>回调函数callback(data,textStatus,jqXHR)中，data为返回的内容，可以是XML文档、JSON文件、HTML片段等等，textStatus为请求状态（success、error、notmodified、timeout）。</p>
+<h4 id="2-2-post-方法"><a href="#2-2-post-方法" class="headerlink" title="2.2 $.post()方法"></a>2.2 $.post()方法</h4><p>用ajax传递一个表单并把结果在一个div中</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=&quot;#&quot; id=&quot;usrForm&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;usrname&quot; placeholder=&quot;请输入用户名&quot;&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;OK&quot;&gt;
+    &lt;/form&gt;
+    &lt;div id=&quot;result&quot;&gt;
+
+    &lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        $(funciton(){
+            $(&quot;#usrForm&quot;).submit(function(event){
+                //防止重复点提交按钮
+                event.preventDefault();
+                var url = $(&quot;#usrForm&quot;).attr(&quot;action&quot;);
+                $.post(url,{
+                    usrname: $(this).find(&quot;input[name=usrname]&quot;).val();
+                },function(data,textStatus){
+                    var content = $( data ).find(&quot;#content&quot;);
+                    $(&quot;#result&quot;).empty().append(content);
+                }
+            });
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h2 id="3、-getScript-方法和-getJson-方法"><a href="#3、-getScript-方法和-getJson-方法" class="headerlink" title="3、$.getScript()方法和$.getJson()方法"></a>3、$.getScript()方法和$.getJson()方法</h2><h4 id="3-1-getScript-方法"><a href="#3-1-getScript-方法" class="headerlink" title="3.1 $.getScript()方法"></a>3.1 $.getScript()方法</h4><p>使用一个HTTP GET请求从服务器加载并执行一段JavaScript代码。</p>
+<pre><code>$.getScript( url [, success(script, textStatus, jqXHR) ] )
+</code></pre><p>success()为回调函数，在JavaScript文件成功载入后运行。</p>
+<h4 id="3-2-getJson-方法"><a href="#3-2-getJson-方法" class="headerlink" title="3.2 $.getJson()方法"></a>3.2 $.getJson()方法</h4><p>使用一个HTTP GET请求从服务器加载JSON编码的数据。</p>
+<pre><code>jQuery.getJSON( url [, data ] [, success(data, textStatus, jqXHR) ] )
+</code></pre><p>如果URL包含字符串“callback=?”（或类似的参数，取决于服务器端 API 是如何定义的），这个请求被视为JSONP形式请求。</p>
+<h2 id="4、-ajax-方法"><a href="#4、-ajax-方法" class="headerlink" title="4、$.ajax()方法"></a>4、$.ajax()方法</h2>
+	</div>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js/">js</a></li></ul>
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>
+
+
+		</main>
+	</div>
+	<div class="gotoTop">
+		<i class="fa fa-arrow-up fa-2x fa-border"></i>
+		<!--img src="/images/gotoTop.gif" title="返回顶部"-->
+	</div>
+	<footer>
+    <div class="info">
+    	<span>Powered By <a href="https://hexo.io/" target="blank">Hexo</a></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Theme by <a href="https://github.com/urnotuj/theme" target="blank">张2V</a></span>
+    </div>
+</footer>
+</body>
+<script src="/blog/js/index.js"></script>
+</html>
