@@ -49,8 +49,53 @@
 		<div class="container">
 		<main class="main">
 			
-			
-    
+			<!--文章模板-->
+
+    <!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title">ECMAScript6笔记（一）</h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2018-02-01</span>
+	</div>
+	<div class="post-content">
+		<a id="more"></a>
+<h2 id="1、let"><a href="#1、let" class="headerlink" title="1、let"></a>1、let</h2><h4 id="1-1-描述"><a href="#1-1-描述" class="headerlink" title="1.1 描述"></a>1.1 描述</h4><p>ES6新增的let命令类似于var，用于声明变量。但是let声明的变量只在let命令所在的代码块有效。例如：</p>
+<pre><code>function test(){
+    let a = 10;
+    var b = 6;
+}
+alert(a);//ReferenceError: a is not defined
+alert(b);//6
+</code></pre><p>再来看下边这段代码，输出结果为10</p>
+<pre><code>var a = [];
+for (var i = 0; i &lt; 10; i++) {
+  a[i] = function () {
+    console.log(i);
+  };
+}
+a[6]();
+</code></pre><p>如果把var改成let，则结果为6。<br>这是因为var声明的变量i，在全局范围内都有效。所以console.log(i)的i指向的是全局的i。所有数组a的成员里面的i，指向的都是同一个i，导致运行时输出的是最后一轮的i的值，也就是10。</p>
+<p>而let声明的变量仅在块级作用域内有效，也就是只在本轮循环中有效。</p>
+<h4 id="1-2-不存在变量提升"><a href="#1-2-不存在变量提升" class="headerlink" title="1.2 不存在变量提升"></a>1.2 不存在变量提升</h4><p>let与var不同，不存在变量提升现象。也就是说，变量必须在声明后使用。</p>
+<pre><code>//无参数传递，为GET方式
+$(&quot;#resText&quot;).load(&quot;test.php&quot;,function(){
+    // body...
+});
+//有参数传递，为POST方式
+$(&quot;#resText&quot;).load(&quot;test.php&quot;,{name:&quot;rain&quot;, age:&quot;22&quot;},function () {
+    // body...
+});
+</code></pre>
+	</div>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>
 
 
 		</main>

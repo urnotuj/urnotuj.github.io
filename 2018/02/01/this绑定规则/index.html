@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta content="width=device-width, initial-scale=0, maximum-scale=1.0, user-scale=0" name="viewport">
+	<title>张2V的博客</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/tomorrow-night.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+		<header class="header">
+    <div class="header-info">
+        <div class="blog-title">
+            <a href="/" class="logo">张2V的博客</a>
+        </div>       
+        <div class="nav-btn">
+            <i class="fa fa-list fa-lg"></i>
+                <!--img src="/images/other_48.png" class="nav-img"-->
+        </div>
+        <nav class="navbar">
+            <ul class="menu">
+                
+                    <li class="menu-item">
+                        <a href="/" class="menu-item-link">主页</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/archives" class="menu-item-link">归档</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/tags" class="menu-item-link">标签</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about" class="menu-item-link">关于</a>
+                    </li>
+                
+            <!--li class="menu-item"><a href="/archives" class="menu-item-link">Archive</a></li-->
+            </ul>
+        </nav>
+    </div>
+</header>
+		<div class="container">
+		<main class="main">
+			
+			<!--文章模板-->
+
+    <!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title">JavaScript中的this</h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2018-02-01</span>
+	</div>
+	<div class="post-content">
+		<p>摘要：<br><a id="more"></a></p>
+<h3 id="1、默认绑定"><a href="#1、默认绑定" class="headerlink" title="1、默认绑定"></a>1、默认绑定</h3><p>最常用的函数调用类型：独立函数调用。可以把这条规则看成是无法应用其他规则时的默认规则。</p>
+<p>对于直接使用不带任何修饰的函数。</p>
+<p>但是如果使用严格模式，则无法绑定到全局对象。</p>
+<pre><code>function foo(){
+    console.log(this.a);
+}
+var a = 2;
+foo();
+</code></pre><h3 id="2、隐式绑定"><a href="#2、隐式绑定" class="headerlink" title="2、隐式绑定"></a>2、隐式绑定</h3><p>看调用位置是否有上下文，或者说是否被某个对象拥有或者包含。</p>
+<pre><code>functin foo(){
+
+}
+var obj={
+    a:2,
+    foo:foo
+};
+obj.foo();
+</code></pre><p>调用位置会使用obj上下文来引用函数，可以理解为函数被调用时候obj拥有或者包含。</p>
+<p>foo被调用时，落脚点是指向obj对象。</p>
+<p>当函数引用有上下文对象时，隐式绑定规则会把函数调用的this绑定到这个上下文对象。<br>这里this被绑定到obj，所以thi.a就是obj.a。</p>
+<p>对象属性引用链中只有最顶层或者是最后一层会影响调用位置。</p>
+<pre><code>function foo(){
+    var a = 1;
+    console.log(this.a);//42
+    console.log(a);//1
+}
+
+var obj2 = {
+    a:42,
+    foo:foo
+};
+
+var obj1 = {
+    a:2,
+    obj2: obj2
+};
+
+obj1.obj2.foo();
+</code></pre><p>隐式丢失</p>
+<p>被隐式绑定的函数会丢失绑定对象，也就是会应用默认绑定。</p>
+<pre><code>function foo(){
+    (this.a);
+}
+var obj={
+    a:2;
+    foo:foo
+};
+var bar = obj.foo;
+var a = &quot;global&quot;;
+bar();//global  这里bar是obj.foo的一个引用，引用的是foo函数本身。
+</code></pre><p>还有一种，发生在传入回调函数时。</p>
+<pre><code>function foo(){
+
+}
+function doFoo(fn){
+    fn();
+}
+var obj = {
+    a:1,
+    foo:foo
+};
+var a = &quot;global&quot;;
+doFoo(obj.foo);  //global
+</code></pre><p>参数传递是隐式赋值。</p>
+<h3 id="3、显式绑定"><a href="#3、显式绑定" class="headerlink" title="3、显式绑定"></a>3、显式绑定</h3><p>apply和call方法</p>
+<p>硬绑定</p>
+<p>创建一个包裹函数，传入所有的参数并返回接收到的所有值。</p>
+<h3 id="4、new绑定"><a href="#4、new绑定" class="headerlink" title="4、new绑定"></a>4、new绑定</h3><p>判断this</p>
+<p>根据优先级来判断函数在某个调用位置应用的是哪条规则。</p>
+<p>1）函数是否在new中调用   new绑定</p>
+<p>   是的话则this绑定的是新创建的对象</p>
+<p>2）函数是否apply call或者硬绑定</p>
+<p>   是的话则this绑定的是指定的对象</p>
+<p>3）函数是否隐式绑定</p>
+<p>   是的话则this绑定的是那个上下文对象</p>
+<p>4）默认绑定  但是严格模式绑定到undefined</p>
+
+	</div>
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>
+
+
+		</main>
+	</div>
+	<div class="gotoTop">
+		<i class="fa fa-arrow-up fa-2x fa-border"></i>
+		<!--img src="/images/gotoTop.gif" title="返回顶部"-->
+	</div>
+	<footer>
+    <div class="info">
+    	<span>Powered By <a href="https://hexo.io/" target="blank">Hexo</a></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Theme by <a href="https://github.com/urnotuj/theme" target="blank">张2V</a></span>
+    </div>
+</footer>
+</body>
+<script src="/js/index.js"></script>
+</html>
