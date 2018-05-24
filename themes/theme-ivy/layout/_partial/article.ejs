@@ -1,0 +1,10 @@
+<% if(post.type === 'tags'){ %>
+	<h2 class="tag-title"><i class="fa fa-tags"></i> <%= page.title %></h2>
+	<div class="tags">
+    <%- list_tags() %>
+    </div>
+<% } else if(post.type === 'categories'){ %>
+    <%- list_categories() %>
+<% } else { %>
+    <%- partial('_partial/_posts/detail', {post: post}) %>
+<% } %>

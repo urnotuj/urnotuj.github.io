@@ -1,0 +1,22 @@
+#search: Search
+#tagcloud: Tag Cloud
+#tweets: Tweets
+#comment: Comments
+#archive_a: Archives
+#archive_b: "Archives: %s"
+#page: Page %d
+#recent_posts: Recent Posts
+#newer: Newer
+#older: Older
+#share: Share
+#powered_by: Powered by
+#rss_feed: RSS Feed
+#category: Category
+menu:
+  home: Home
+  archives: Archives
+  tags: Tags
+  about: About
+  categories: Categories
+prev: Prev
+next: Next

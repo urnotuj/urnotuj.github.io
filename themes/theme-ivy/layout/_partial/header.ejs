@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="header-info">
+        <div class="blog-title">
+            <a href="<%- url_for() %>" class="logo"><%= config.title %></a>
+        </div>       
+        <div class="nav-btn">
+            <i class="fa fa-list fa-lg"></i>
+                <!--img src="/images/other_48.png" class="nav-img"-->
+        </div>
+        <nav class="navbar">
+            <ul class="menu">
+                <% for(var i in theme.menu) {%>
+                    <li class="menu-item">
+                        <a href="<%- url_for(theme.menu[i]) %>" class="menu-item-link"><%= __('menu.' + i) %></a>
+                    </li>
+                <% } %>
+            <!--li class="menu-item"><a href="/archives" class="menu-item-link">Archive</a></li-->
+            </ul>
+        </nav>
+    </div>
+</header>

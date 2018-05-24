@@ -1,0 +1,6 @@
+menu:
+  Home: /
+  Archives: /archives
+
+# highlight.js
+highlight_theme: zenburn

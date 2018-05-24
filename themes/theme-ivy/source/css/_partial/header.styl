@@ -1,0 +1,91 @@
+@media screen and (min-width:878px) {
+    .header {
+        min-height: 60px;
+        width: 100%;
+        background: #e6e6e6;
+        .header-info {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            .blog-title {
+                .logo {
+                    color: #666;
+                    /*font-family: "Comic Sans MS", cursive, LiSu,sans-serif;*/
+                    text-decoration: none;
+                    font-size: 1.5em;
+                }
+            }
+            .nav-btn {
+                display: none;
+            }
+            .navbar {
+                .menu {
+                    margin: 0;
+                    padding: 0;
+
+                    .menu-item {
+                        display: inline-block;
+                        margin-right: 16px;
+                    }
+                    .menu-item-link {
+                        text-decoration: none;
+                        color: #666;
+                        font-size: 1.2em;
+
+                        &:hover {
+                            color: #368CCB;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 878px) {
+    .header {
+        width: 100%;
+        background: #e6e6e6;
+        .header-info {
+            max-width: 960px;
+            margin: 0 auto;
+            .blog-title {
+                .logo {
+                    color: #666;
+                    /*font-family: "Comic Sans MS", cursive, LiSu,sans-serif;*/
+                    text-decoration: none;
+                    font-size: 1.5em;
+                }
+            }
+            .nav-btn {
+                display: block;
+                position: absolute;
+                top: 0.6rem;
+                right: 1.0rem;
+                cursor: pointer;
+            }
+            .navbar {
+                .menu {
+                    margin: 0;
+                    padding: 0;
+                    background: #e6e6e6;
+                    display: none;
+                    .menu-item {
+                        list-style: none;
+                        padding-left: 10px;
+                    }
+                    .menu-item-link {
+                        text-decoration: none;
+                        font-size: 1.1em;
+                        color: #666;
+                        &:hover {
+                            color: #368CCB;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

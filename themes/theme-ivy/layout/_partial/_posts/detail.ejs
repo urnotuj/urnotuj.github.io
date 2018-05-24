@@ -1,0 +1,21 @@
+<!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title"><%= page.title %></h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于<%- date(page.date,"YYYY-MM-DD") %></span>
+	</div>
+	<div class="post-content">
+		<%- page.content %>
+	</div>
+    <%- list_tags(page.tags, {
+        show_count: false,
+        class: 'article-tag'
+    }) %>
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>

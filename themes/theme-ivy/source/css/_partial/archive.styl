@@ -1,0 +1,36 @@
+.archive{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    .year{
+        font-size: 1.8em;
+        font-weight: 800;
+        padding: 4px 0;
+        border-bottom: 1px solid #ccc;
+        width: 80%;
+        text-align: center;
+        padding: 40px 0;
+        a{
+            text-decoration: none;
+            color: #666;
+        }
+    }
+    .archive_item{
+        color: #555555;
+        .title{
+            color: inherit;
+            text-decoration: none;
+            transition: color ease .2s;
+            &:hover{
+                color: $archive-item-hover;
+            }
+        }
+        width: 80%;
+        padding: 20px 0;
+        border-bottom: 1px solid #ccc;
+        .date{
+            float: right;
+        }
+    }
+}

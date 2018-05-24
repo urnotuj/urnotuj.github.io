@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- partial('_partial/head') %>
+<body>
+	
+		<%- partial('_partial/header') %>
+		<div class="container">
+		<main class="main">
+			
+			<%- body %>
+
+		</main>
+	</div>
+	<div class="gotoTop">
+		<i class="fa fa-arrow-up fa-2x fa-border"></i>
+		<!--img src="/images/gotoTop.gif" title="返回顶部"-->
+	</div>
+	<%- partial('_partial/footer')%>
+</body>
+<%- js('js/index.js') %>
+</html>
