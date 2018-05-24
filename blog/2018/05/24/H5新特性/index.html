@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta content="width=device-width, initial-scale=0, maximum-scale=1.0, user-scale=0" name="viewport">
+	<title>张2V的博客</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/tomorrow-night.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/blog/css/style.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+		<header class="header">
+    <div class="header-info">
+        <div class="blog-title">
+            <a href="/blog/" class="logo">张2V的博客</a>
+        </div>       
+        <div class="nav-btn">
+            <i class="fa fa-list fa-lg"></i>
+                <!--img src="/images/other_48.png" class="nav-img"-->
+        </div>
+        <nav class="navbar">
+            <ul class="menu">
+                
+                    <li class="menu-item">
+                        <a href="/blog/" class="menu-item-link">主页</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/archives" class="menu-item-link">归档</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/tags" class="menu-item-link">标签</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/about" class="menu-item-link">关于</a>
+                    </li>
+                
+            <!--li class="menu-item"><a href="/archives" class="menu-item-link">Archive</a></li-->
+            </ul>
+        </nav>
+    </div>
+</header>
+		<div class="container">
+		<main class="main">
+			
+			<!--文章模板-->
+
+    <!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title"></h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2018-05-24</span>
+	</div>
+	<div class="post-content">
+		<h2 id="语义化标签"><a href="#语义化标签" class="headerlink" title="语义化标签"></a>语义化标签</h2><p><header>、<footer>、<nav>、<section>、<aside></aside></section></nav></footer></header></p>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h3 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-localStorage"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-localStorage" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localStorage"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;localStorage</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在浏览器关闭，然后重新打开后，除非数据被清除，否则仍然存在。</p>
+<h3 id="nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-sessionStorage"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-nbsp-sessionStorage" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sessionStorage"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sessionStorage</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session，会话，顾名思义，sessionStorage只在当前会话页面中有效。</p>
+<p>二者可以存储的数据量都大于cookie。</p>
+<p>更重要的一点区别是在于，cookie是由对服务器的请求来传递，每次对服务器发起请求时候都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题。而localStorage和sessionStorage不是每个服务器请求都会传递，只有在请求时使用数据，不参与和服务器的通信。</p>
+<h2 id="文档类型声明"><a href="#文档类型声明" class="headerlink" title="文档类型声明"></a>文档类型声明</h2><p>HTML5中文档声明用的是&lt;!DOCTYPE html&gt;，HTML4.01的声明要长得多。这是因为HTML4.01是基于SGML的，需要指定解析文档类型。</p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>我们都知道js是单线程的，因此有了异步。而HTML5新增了Web Worker，定义了一套新的API，让js代码在另外一个线程运行，不影响页面操作和响应。</p>
+<p>Web workers有两种类型：专用线程dedicated web worker和共享线程shared web worker。<br>Dedicated web worker随当前页面的关闭而结束；这意味着Dedicated web worker只能被创建它的页面访问，Shared web worker可以被多个页面访问。</p>
+<p>在Javascript代码中，“Work”类型代表Dedicated web worker，而“SharedWorker”类型代表Shared web worker。而Shared Worker则可以被多个页面所共享（同域情况下）</p>
+<p>例如，子线程向主线程发送数据的流程为：</p>
+<ol>
+<li>在外部脚本（子线程）进行相应的操作，然后调用postmessage()来传送数据</li>
+<li>原本的脚本（主线程）内，判断是否支持Web Worker，支持的话则创建（new）一个Worker，传入的参数为外部脚本的URL。然后添加onmessage()事件监听器，执行相应的操作，比如取数据event.data；</li>
+<li>终止线程，可以在主线程使用terminate()，也可以在子线程中使用self.close()。</li>
+</ol>
+<p>但是，Web Worker不能访问到Window、Document、parent对象。</p>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a><canvas>标签</canvas></h2><p>canvas与SVG的区别：</p>
+<ol>
+<li>SVG是基于XML的，而canvas的绘图是使用js来做的（<canvas>标签只是一个容器）；</canvas></li>
+<li>SVG可以添加事件处理，canvas不能；</li>
+<li>canvas是有分辨率的</li>
+</ol>
+<h2 id="getElementsByClassName-方法"><a href="#getElementsByClassName-方法" class="headerlink" title="getElementsByClassName()方法"></a>getElementsByClassName()方法</h2><h2 id="自定义数据属性"><a href="#自定义数据属性" class="headerlink" title="自定义数据属性"></a>自定义数据属性</h2><p>可以给元素添加自定义属性，但是需要加上前缀==data-==</p>
+
+	</div>
+    
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>
+
+
+		</main>
+	</div>
+	<div class="gotoTop">
+		<i class="fa fa-arrow-up fa-2x fa-border"></i>
+		<!--img src="/images/gotoTop.gif" title="返回顶部"-->
+	</div>
+	<footer>
+    <div class="info">
+    	<span>Powered By <a href="https://hexo.io/" target="blank">Hexo</a></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Theme by <a href="https://github.com/urnotuj/theme" target="blank">张2V</a></span>
+    </div>
+</footer>
+</body>
+<script src="/blog/js/index.js"></script>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<meta content="width=device-width, initial-scale=0, maximum-scale=1.0, user-scale=0" name="viewport">
+	<title>张2V的博客</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/tomorrow-night.min.css">
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/blog/css/style.css">
+	<script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	
+		<header class="header">
+    <div class="header-info">
+        <div class="blog-title">
+            <a href="/blog/" class="logo">张2V的博客</a>
+        </div>       
+        <div class="nav-btn">
+            <i class="fa fa-list fa-lg"></i>
+                <!--img src="/images/other_48.png" class="nav-img"-->
+        </div>
+        <nav class="navbar">
+            <ul class="menu">
+                
+                    <li class="menu-item">
+                        <a href="/blog/" class="menu-item-link">主页</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/archives" class="menu-item-link">归档</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/tags" class="menu-item-link">标签</a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/blog/about" class="menu-item-link">关于</a>
+                    </li>
+                
+            <!--li class="menu-item"><a href="/archives" class="menu-item-link">Archive</a></li-->
+            </ul>
+        </nav>
+    </div>
+</header>
+		<div class="container">
+		<main class="main">
+			
+			<!--文章模板-->
+
+    <!--文章模板-->
+<article class="all-post">
+	<div class="post-title">
+		<h2 class="title"></h2>
+	</div>
+	<div class="post-meta">
+		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2018-05-24</span>
+	</div>
+	<div class="post-content">
+		<h1 id="js中的闭包和应用"><a href="#js中的闭包和应用" class="headerlink" title="js中的闭包和应用"></a>js中的闭包和应用</h1><p>看了很多写闭包的文章，还看了书里对闭包的讲解，有js高程、你不知道的js。那么就简单写一下我目前的理解，后续还会继续更新。其实最重要的还是发现我们哪里用到了闭包。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>js高级程序设计里写的是：</p>
+<blockquote>
+<p>闭包是指有权访问另一个函数作用域中的变量的函数</p>
+</blockquote>
+<p>我的理解是，外部是读不到函数内部作用域的，闭包可以用来读取函数内部的变量。创建闭包经常是在一个函数内部创建另一个函数，其实闭包也可以理解成是一个可以访问其父函数变量的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function foo()&#123;</div><div class="line">    var a = 1;</div><div class="line">    return &#123;</div><div class="line">        f1 : function()&#123;</div><div class="line">            return a;</div><div class="line">        &#125;,</div><div class="line">        f2 : function()&#123;</div><div class="line">            a++;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var fn1 = foo();</div><div class="line">var fn2 = foo();</div><div class="line">fn2.f2();</div><div class="line">fn2.f1();//2</div><div class="line">fn1.f1();//1，并不受影响</div><div class="line">fn1.f2();</div><div class="line">fn1.f1();//2</div></pre></td></tr></table></figure>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ol>
+<li>使用addEventListener()处理事件时候，函数想要传参进去，可以用闭包来做。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var arg = &quot;aaaaaa&quot;;</div><div class="line">myBtn.addEventListener(&quot;click&quot;,fun(arg),false);</div><div class="line">function fun(str)&#123;</div><div class="line">	return function()&#123;</div><div class="line">	    console.log(str);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>可以用来创建块级作用域</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;比如看到讲闭包的文章就会见到的一段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    setTimeout(function timer()&#123; </div><div class="line">        console.log(i);</div><div class="line">    &#125;,i * 1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这段代码会在控制台输出十个10。原因是：虽然循环中的十个函数是在各个迭代中分别定义的，但是它们是被放在一个==共享的全局作用域==中，因此实际上只有一个i。</p>
+<p>接下来用IIFE（立即执行函数表达式）来改进一下，IIFE会创建一个作用域。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 10; i++) &#123;</div><div class="line">    (function(j)&#123;</div><div class="line">        setTimeout(function timer()&#123;</div><div class="line">            console.log(j);</div><div class="line">        &#125;,j * 1000);</div><div class="line">    &#125;)(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这里在迭代内会为每个迭代都生成一个新的作用域，使得延迟函数的回调可以将新的作用域封闭在每个迭代内部。</p>
+<p>不用立即执行函数也可以，可以重新定义一个函数，函数里放一个闭包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">function foo(j)&#123;</div><div class="line">    return function()&#123;</div><div class="line">        console.log(j);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">for(var i =0;i&lt;5;i++)&#123;</div><div class="line">    setTimeout(foo(i), i*1000);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然，也可以用ES6的let来做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(let i = 0; i &lt; 10; i++) &#123;</div><div class="line">    setTimeout(function timer()&#123; </div><div class="line">            console.log(i);</div><div class="line">    &#125;,i * 1000) ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+	</div>
+    
+    <div class="post-toc">
+    	
+<ul class="article-toc" id="article-toc"></ul>
+    	<div class="post-toc-btn active"><i class="fa fa-list fa-border fa-2x"></i></div>
+    </div>
+</article>
+
+
+		</main>
+	</div>
+	<div class="gotoTop">
+		<i class="fa fa-arrow-up fa-2x fa-border"></i>
+		<!--img src="/images/gotoTop.gif" title="返回顶部"-->
+	</div>
+	<footer>
+    <div class="info">
+    	<span>Powered By <a href="https://hexo.io/" target="blank">Hexo</a></span>&nbsp;&nbsp;&nbsp;&nbsp;<span>Theme by <a href="https://github.com/urnotuj/theme" target="blank">张2V</a></span>
+    </div>
+</footer>
+</body>
+<script src="/blog/js/index.js"></script>
+</html>
