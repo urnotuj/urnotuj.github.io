@@ -54,13 +54,14 @@
     <!--文章模板-->
 <article class="all-post">
 	<div class="post-title">
-		<h2 class="title"></h2>
+		<h2 class="title">js中的闭包和应用</h2>
 	</div>
 	<div class="post-meta">
 		<span class="post-time"><i class="fa fa-clock-o"></i> 发表于2018-05-24</span>
 	</div>
 	<div class="post-content">
-		<h1 id="js中的闭包和应用"><a href="#js中的闭包和应用" class="headerlink" title="js中的闭包和应用"></a>js中的闭包和应用</h1><p>看了很多写闭包的文章，还看了书里对闭包的讲解，有js高程、你不知道的js。那么就简单写一下我目前的理解，后续还会继续更新。其实最重要的还是发现我们哪里用到了闭包。</p>
+		<p>摘要：<br>js的闭包<br><a id="more"></a></p>
+<p>看了很多写闭包的文章，还看了书里对闭包的讲解，有js高程、你不知道的js。那么就简单写一下我目前的理解，后续还会继续更新。其实最重要的还是发现我们哪里用到了闭包。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>js高级程序设计里写的是：</p>
 <blockquote>
 <p>闭包是指有权访问另一个函数作用域中的变量的函数</p>
@@ -86,7 +87,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(let i = 0; i &lt; 10; i++) &#123;</div><div class="line">    setTimeout(function timer()&#123; </div><div class="line">            console.log(i);</div><div class="line">    &#125;,i * 1000) ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 	</div>
-    
+    <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js/">js</a></li></ul>
     <div class="post-toc">
     	
 <ul class="article-toc" id="article-toc"></ul>
